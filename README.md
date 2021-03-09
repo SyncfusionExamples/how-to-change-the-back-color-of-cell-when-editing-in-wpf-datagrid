@@ -1,9 +1,9 @@
 # How to change the back color of cell when editing in WPF DataGrid (SfDataGrid)?
 
 ## About the sample
-This example illustrates how to change the back color of cell when editing in WPF DataGrid (SfDataGrid)
+This example illustrates how to change the back color of cell when editing in [WPF DataGrid](https://www.syncfusion.com/wpf-ui-controls/datagrid) (SfDataGrid)
 
-By default, [SfDataGrid](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) does not provide direct support to change the background color of cell when editing. You can change the background color of the cell when editing in [SfDataGrid](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) by customized the editor control **TextChanged** event based on the corresponding column renderer.
+[WPF DataGrid](https://www.syncfusion.com/wpf-ui-controls/datagrid) (SfDataGrid) does not provide direct support to change the background color of cell when editing. You can change the background color of the cell when editing in [SfDataGrid](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) by customized the editor control `TextChanged` event based on the corresponding column renderer.
 
 ```C#
 
