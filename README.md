@@ -79,6 +79,7 @@ public class CustomValueConverter : IValueConverter
 
 ```
 
+KB article - [How to change the back color of cell when editing in WPF DataGrid (SfDataGrid)?](https://www.syncfusion.com/kb/12014/how-to-change-the-back-color-of-cell-when-editing-in-wpf-datagrid-sfdatagrid)
 
 ## Requirements to run the demo
 Visual Studio 2015 and above versions
