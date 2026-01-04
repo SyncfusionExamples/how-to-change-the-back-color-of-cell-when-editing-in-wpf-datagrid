@@ -1,9 +1,8 @@
-# How to change the back color of cell when editing in WPF DataGrid (SfDataGrid)?
+# How to Change the BackColor of Cell When Editing in WPF DataGrid?
 
-## About the sample
-This example illustrates how to change the back color of cell when editing in [WPF DataGrid](https://www.syncfusion.com/wpf-ui-controls/datagrid) (SfDataGrid)
+This example illustrates how to change the back color of cell when editing in [WPF DataGrid](https://www.syncfusion.com/wpf-controls/datagrid) (SfDataGrid).
 
-[WPF DataGrid](https://www.syncfusion.com/wpf-ui-controls/datagrid) (SfDataGrid) does not provide direct support to change the background color of cell when editing. You can change the background color of the cell when editing in [SfDataGrid](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) by customized the editor control `TextChanged` event based on the corresponding column renderer.
+`DataGrid` does not provide direct support to change the background color of cell when editing. You can change the background color of the cell when editing in `DataGrid` by customized the editor control `TextChanged` event based on the corresponding column renderer.
 
 ```C#
 
@@ -12,28 +11,28 @@ this.dataGrid.CellRenderers.Add("Numeric", new GridCellNumericRendererExt());
 
 public class GridCellNumericRendererExt : GridCellNumericRenderer
 {
-       public override void OnInitializeEditElement(DataColumnBase dataColumn, DoubleTextBox uiElement, object dataContext)
-       {
-             base.OnInitializeEditElement(dataColumn, uiElement, dataContext);
-             uiElement.TextChanged += UiElement_TextChanged;
-       }
+    public override void OnInitializeEditElement(DataColumnBase dataColumn, DoubleTextBox uiElement, object dataContext)
+    {
+        base.OnInitializeEditElement(dataColumn, uiElement, dataContext);
+        uiElement.TextChanged += UiElement_TextChanged;
+    }
 
-       private void UiElement_TextChanged(object sender, TextChangedEventArgs e)
-       {
-             var doubleTextBox = (sender as DoubleTextBox);
-             //while editing change the condition based on value
-             if (doubleTextBox.Text != "0.00")
-                 doubleTextBox.Background = new SolidColorBrush(Colors.Green);
-             else if (doubleTextBox.Text == "0.00")
-                 doubleTextBox.Background = new SolidColorBrush(Colors.Red);
-       }
+    private void UiElement_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var doubleTextBox = (sender as DoubleTextBox);
+        //while editing change the condition based on value
+        if (doubleTextBox.Text != "0.00")
+            doubleTextBox.Background = new SolidColorBrush(Colors.Green);
+        else if (doubleTextBox.Text == "0.00")
+            doubleTextBox.Background = new SolidColorBrush(Colors.Red);
+    }
 }
 
 ```
 
-[SfDataGrid](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) provides support for various built-in column types. Each column has its own properties and renderer for more details please refer the below documentation link.
+`DataGrid` provides support for various built-in column types. Each column has its own properties and renderer for more details please refer the below documentation link.
 
-**Documentation Link:** https://help.syncfusion.com/wpf/datagrid/column-types
+Take a moment to peruse the [WPF DataGrid - Column Types](https://help.syncfusion.com/wpf/datagrid/column-types) documentation, where you can find about DataGrid Column Types with code examples.
 
 ![Change the background color of cell while editing in SfDataGrid](ChangeBackGroundColorwhenediting.gif)
 
@@ -61,27 +60,21 @@ public class GridCellNumericRendererExt : GridCellNumericRenderer
 
 public class CustomValueConverter : IValueConverter
 {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            //while change background color based on condition
-            if (value == null || ((value != null) && double.Parse(value.ToString()) == 0))
-                return new SolidColorBrush(Colors.Red);
-            return new SolidColorBrush(Colors.Green);
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        //while change background color based on condition
+        if (value == null || ((value != null) && double.Parse(value.ToString()) == 0))
+            return new SolidColorBrush(Colors.Red);
+        return new SolidColorBrush(Colors.Green);
+    }
 
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-
-            throw new NotImplementedException();
-        }
+    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 ```
 
-KB article - [How to change the back color of cell when editing in WPF DataGrid (SfDataGrid)?](https://www.syncfusion.com/kb/12014/how-to-change-the-back-color-of-cell-when-editing-in-wpf-datagrid-sfdatagrid)
-
 ## Requirements to run the demo
 Visual Studio 2015 and above versions
-
-
